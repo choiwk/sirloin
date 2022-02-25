@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import ItemOptionLayout from './components/ItemOptionLayout.js';
+import React, { useState, useRef } from 'react';
+import ItemOptionLayout from './OptionCard';
 
-import 'utils/styles/PartThree.scss';
-import 'utils/styles/ItemOptionLayout.scss';
+import 'utils/styles/OptionLayout.scss';
+import 'utils/styles/OptionCard.scss';
 
-const PartThree = () => {
+const OptionLayout = () => {
   const [layoutInventory, setLayoutInventory] = useState([]);
 
   const addOptionSet = () => {
@@ -27,7 +27,7 @@ const PartThree = () => {
 
   return (
     <>
-      <section className='part-three'>
+      <section className='option-container'>
         <div className='item-container'>
           <div className='container-header'>
             <h2>상품 옵션*</h2>
@@ -59,4 +59,4 @@ const PartThree = () => {
   );
 };
 
-export default PartThree;
+export default OptionLayout;

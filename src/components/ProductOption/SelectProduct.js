@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { FiPlus } from 'react-icons/fi';
 
-import AdditionalProduct from 'components/Main/components/AdditionalContainer/AdditionalProduct';
+import AdditionalProduct from '../ProductOption/AdditionalProduct';
 import 'utils/styles/AdditionalProduct.scss';
 
 const SelectProduct = () => {
   const [price, setPrice] = useState('');
   const [sellingPrice, setSellingPrice] = useState('');
+  const [additLayout, setAdditLayout] = useState(false);
   const changefocus = useRef();
 
   const discountPercent = () => {
@@ -37,8 +38,6 @@ const SelectProduct = () => {
     return comma(uncomma(str));
   };
 
-  const [additLayout, setAdditLayout] = useState(false);
-
   const additHandle = () => {
     setAdditLayout(!additLayout);
   };
@@ -46,7 +45,6 @@ const SelectProduct = () => {
   return (
     <>
       <div className='select-container'>
-        <div className='select-container-header'></div>
         <input type='text' id='option-input' placeholder='옵션명을 입력해 주세요.(필수) ' />
         <div className='input-form-container'>
           <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import ImageUpload from 'components/ImageUpload';
 import Menulist from 'components/Menulist';
 import Durationconfig from 'components/Durationconfig';
-import PartThree from 'components/PartThree/PartThree';
+import PartThree from 'components/ProductOption/OptionLayout';
 import Productinfo from 'components/Productinfo';
 import DeliverySetting from 'components/DeliverySetting';
 import ProductBenefit from 'components/ProductBenefit';

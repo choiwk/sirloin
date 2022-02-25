@@ -1,9 +1,9 @@
-import Main from 'components/Main';
+import Main from './components/Main/Main';
 import 'utils/styles/App.scss';
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <Main />
     </div>
   );

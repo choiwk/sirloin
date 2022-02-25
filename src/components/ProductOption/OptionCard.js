@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SelectProduct from 'components/PartThree/components/SelectContainer/SelectProduct';
+import SelectProduct from './SelectProduct';
 import 'utils/styles/SelectProduct.scss';
 
 const ItemOptionLayout = () => {
