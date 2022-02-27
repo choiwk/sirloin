@@ -18,7 +18,7 @@ function Productinfo() {
 
       <div className='infocard-container'>
         {cardList.map((card, idx) => {
-          return <Infocard key={idx} cardList={cardList} setCardList={setCardList} card={card}></Infocard>;
+          return <Infocard key={idx} cardList={cardList} setCardList={setCardList} card={card} />;
         })}
         <button className='infocard-add-btn' onClick={addCard}>
           + 정보고시 추가

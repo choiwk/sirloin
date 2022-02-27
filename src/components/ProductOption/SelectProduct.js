@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { FiPlus } from 'react-icons/fi';
 
-import AdditionalProduct from '../ProductOption/AdditionalProduct';
+import AdditionalProduct from './AdditionalProduct';
 import 'utils/styles/AdditionalProduct.scss';
+import 'utils/styles/SelectProduct.scss';
 
-const SelectProduct = () => {
+const SelectProduct = ({ additCard, additCardList, setAdditCardList }) => {
   const [price, setPrice] = useState('');
   const [sellingPrice, setSellingPrice] = useState('');
   const [additLayout, setAdditLayout] = useState(false);
+
   const changefocus = useRef();
 
   const discountPercent = () => {
@@ -42,9 +44,19 @@ const SelectProduct = () => {
     setAdditLayout(!additLayout);
   };
 
+  const deleteAddit = () => {
+    let temp = additCardList.filter((el) => el.id !== additCard.id);
+    setAdditCardList(temp);
+  };
+
   return (
     <>
       <div className='select-container'>
+        <div className='delete-container'>
+          <button className='delete' onClick={deleteAddit}>
+            삭제
+          </button>
+        </div>
         <input type='text' id='option-input' placeholder='옵션명을 입력해 주세요.(필수) ' />
         <div className='input-form-container'>
           <div>
@@ -58,7 +70,10 @@ const SelectProduct = () => {
             />
             원
           </div>
-          <div className='discount'>{discountPercent()}%</div>
+          <div className='discount'>
+            <span>&#123;&#123;할인율&#125;&#125;&#32;&#37;</span>
+            {discountPercent()}
+          </div>
           <div>
             <input
               className='price-input'
