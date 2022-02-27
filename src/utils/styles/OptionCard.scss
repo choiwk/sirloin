@@ -1,8 +1,20 @@
 .item-layout {
-  border: 1px solid blue;
   margin: 0 auto;
   width: 95%;
 
+  .delete-inven-area {
+    height: 40px;
+    .delete-btn {
+      padding: 10px 20px;
+      font-size: 12px;
+      color: red;
+      border: 1px solid red;
+      border-radius: 3px;
+      background-color: #fff;
+      float: right;
+      cursor: pointer;
+    }
+  }
   .delete-btn-area {
     display: flex;
     justify-content: flex-end;

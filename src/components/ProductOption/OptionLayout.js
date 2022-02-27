@@ -1,28 +1,21 @@
-import React, { useState, useRef } from 'react';
-import ItemOptionLayout from './OptionCard';
-
+import React, { useState } from 'react';
+import OptionCard from './OptionCard';
+import SelectProduct from './SelectProduct';
+import { default_optionform } from 'utils/constants/optionform';
 import 'utils/styles/OptionLayout.scss';
 import 'utils/styles/OptionCard.scss';
 
 const OptionLayout = () => {
-  const [layoutInventory, setLayoutInventory] = useState([]);
+  const [optionCardList, setOptionCardList] = useState([]);
 
-  const addOptionSet = () => {
-    setLayoutInventory(
-      layoutInventory.concat(
-        <ItemOptionLayout
-          key={layoutInventory.length}
-          layoutInventory={layoutInventory}
-          length={layoutInventory.length}
-        />
-      )
-    );
-  };
-
-  const myRef = useRef(null);
-
-  const removeOptionSet = (e) => {
-    setLayoutInventory(layoutInventory.splice(0, e.target.id));
+  const addCard = () => {
+    if (optionCardList.length === 0) {
+      setOptionCardList([default_optionform]);
+    } else {
+      let id = optionCardList[optionCardList.length - 1].id;
+      let temp = [...optionCardList].concat({ ...default_optionform, id: id + 1 });
+      setOptionCardList(temp);
+    }
   };
 
   return (
@@ -31,25 +24,23 @@ const OptionLayout = () => {
         <div className='item-container'>
           <div className='container-header'>
             <h2>상품 옵션*</h2>
-            <button className='add-option-btn' onClick={addOptionSet}>
+            <button className='add-option-btn' onClick={addCard}>
               + 옵션 세트 추가
             </button>
           </div>
           <ul>
-            {layoutInventory.length === 0 ? (
+            {optionCardList.length === 0 ? (
               <div className='inven-empty'>
                 <p>옵션세트를 추가하여 옵션을 구성해 주세요.</p>
               </div>
             ) : (
-              layoutInventory.map((invenEdifice, index) => (
-                <li key={index} id={index} ref={myRef}>
-                  <div className='delete-inven-area'>
-                    <button className='delete-btn' id={index} onClick={removeOptionSet}>
-                      삭제
-                    </button>
-                  </div>
-                  {invenEdifice}
-                </li>
+              optionCardList.map((optionCard, index) => (
+                <OptionCard
+                  key={index}
+                  optionCard={optionCard}
+                  optionCardList={optionCardList}
+                  setOptionCardList={setOptionCardList}
+                ></OptionCard>
               ))
             )}
           </ul>
