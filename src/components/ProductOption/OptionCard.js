@@ -9,6 +9,7 @@ const ItemOptionLayout = ({ optionCardList, setOptionCardList, optionCard }) => 
   const [additCardList, setAdditCardList] = useState([default_additionform]);
 
   const encodeFileToBase64 = (fileBlob) => {
+    console.log(fileBlob);
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
     return new Promise((resolve) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import OptionCard from './OptionCard';
-import SelectProduct from './SelectProduct';
+
 import { default_optionform } from 'utils/constants/optionform';
 import 'utils/styles/OptionLayout.scss';
 import 'utils/styles/OptionCard.scss';

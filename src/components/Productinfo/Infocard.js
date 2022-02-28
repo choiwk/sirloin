@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Optioninput from 'components/Productinfo/Optioninput';
-import { default_option_list } from 'utils/constants/productform';
 import 'utils/styles/Infocard.scss';
 function Infocard({ cardList, setCardList, card }) {
   const [addOptionList, setAddOptionList] = useState([]);
