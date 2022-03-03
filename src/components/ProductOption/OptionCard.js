@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
 import SelectProduct from './SelectProduct';
-import { default_additionform } from 'utils/constants/optionform';
+import { default_optionform } from 'utils/constants/optionform';
 import 'utils/styles/SelectProduct.scss';
 
 const ItemOptionLayout = ({ optionCardList, setOptionCardList, optionCard }) => {
   const [imageSrc, setImageSrc] = useState('');
-  const [additCardList, setAdditCardList] = useState([default_additionform]);
+  const [additCardList, setAdditCardList] = useState([default_optionform]);
+  const [imageFile, setImageFile] = useState([]);
 
   const encodeFileToBase64 = (fileBlob) => {
-    console.log(fileBlob);
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
+
     return new Promise((resolve) => {
       reader.onload = () => {
         setImageSrc(reader.result);
@@ -19,18 +20,18 @@ const ItemOptionLayout = ({ optionCardList, setOptionCardList, optionCard }) => 
       };
     });
   };
-
+  console.log(imageSrc);
   const deleteCard = () => {
     let temp = optionCardList.filter((el) => el.id !== optionCard.id);
     setOptionCardList(temp);
   };
 
-  const addAdditCard = () => {
+  const addCard = () => {
     if (additCardList.length === 0) {
-      setAdditCardList([default_additionform]);
+      setAdditCardList([default_optionform]);
     } else {
       let id = additCardList[additCardList.length - 1].id;
-      let temp = [...additCardList].concat({ ...default_additionform, id: id + 1 });
+      let temp = [...additCardList].concat({ ...default_optionform, id: id + 1 });
       setAdditCardList(temp);
     }
   };
@@ -72,7 +73,7 @@ const ItemOptionLayout = ({ optionCardList, setOptionCardList, optionCard }) => 
         </ul>
         <div>
           <footer>
-            <button className='add-option-btn' onClick={addAdditCard}>
+            <button className='add-option-btn' onClick={addCard}>
               &#43;&#32; 옵션 추가
             </button>
           </footer>

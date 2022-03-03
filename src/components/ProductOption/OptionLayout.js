@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OptionCard from './OptionCard';
 
-import { default_optionform } from 'utils/constants/optionform';
+import { default_optioncard } from 'utils/constants/optionform';
 import 'utils/styles/OptionLayout.scss';
 import 'utils/styles/OptionCard.scss';
 
@@ -10,10 +10,10 @@ const OptionLayout = () => {
 
   const addCard = () => {
     if (optionCardList.length === 0) {
-      setOptionCardList([default_optionform]);
+      setOptionCardList([default_optioncard]);
     } else {
       let id = optionCardList[optionCardList.length - 1].id;
-      let temp = [...optionCardList].concat({ ...default_optionform, id: id + 1 });
+      let temp = [...optionCardList].concat({ ...default_optioncard, id: id + 1 });
       setOptionCardList(temp);
     }
   };
